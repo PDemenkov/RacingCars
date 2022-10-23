@@ -2,14 +2,15 @@ public abstract class Driver<T extends Transport> {
     private final String fullName;
     private final String category;
     private final int driverExp;
-private final T car;
+    private final T car;
 
-    public Driver(String fullName, String category, int driverExp,T car) {
+    public Driver(String fullName, String category, int driverExp, T car) {
         this.fullName = fullName;
         this.category = category;
         this.driverExp = driverExp;
         this.car = car;
     }
+
     public void startMoving() {
         System.out.printf("Driver %s start moving", this.fullName);
         this.car.startMoving();
@@ -41,6 +42,6 @@ private final T car;
     @Override
     public String toString() {
         return String.format("Driver %s rules auto %s %s and will be able to begin racing",
-                this.fullName,this.car.getBrand(),this.car.getModel());
+                this.fullName, this.car.getBrand(), this.car.getModel());
     }
 }
