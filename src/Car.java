@@ -1,8 +1,19 @@
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Car extends Transport implements Competing {
-    public Car(String brand, String model, float engineVolume) {
+    private TypeOfBody typeOfBody;
+
+    public Car(String brand, String model, float engineVolume, TypeOfBody typeOfBody) {
         super(brand, model, engineVolume);
+        this.typeOfBody = typeOfBody;
+    }
+
+    public TypeOfBody getTypeOfBody() {
+        return typeOfBody;
+    }
+
+    public void setTypeOfBody(TypeOfBody typeOfBody) {
+        this.typeOfBody = typeOfBody;
     }
 
     @Override
@@ -13,6 +24,15 @@ public class Car extends Transport implements Competing {
     @Override
     public void endMoving() {
         System.out.printf("Car %s %s End moving", this.getBrand(), this.getModel());
+    }
+
+    @Override
+    public void printType() {
+        if (typeOfBody == null) {
+            System.out.println("Данных по авто недостаточно");
+        } else {
+            System.out.println("Тип кузова: " + typeOfBody);
+        }
     }
 
     @Override

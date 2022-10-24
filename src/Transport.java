@@ -24,4 +24,8 @@ public abstract class Transport {
     public abstract void startMoving();
 
     public abstract void endMoving();
+
+    public abstract void printType();
 }
+
+

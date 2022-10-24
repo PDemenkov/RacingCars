@@ -1,8 +1,12 @@
+import java.time.chrono.ThaiBuddhistChronology;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Bus extends Transport implements Competing {
-    public Bus(String brand, String model, float engineVolume) {
+    private BusСapacity busСapacity;
+
+    public Bus(String brand, String model, float engineVolume, BusСapacity busСapacity) {
         super(brand, model, engineVolume);
+        this.busСapacity = busСapacity;
     }
 
     @Override
@@ -13,6 +17,15 @@ public class Bus extends Transport implements Competing {
     @Override
     public void endMoving() {
         System.out.printf("Bus %s %s End moving", this.getBrand(), this.getModel());
+    }
+
+    @Override
+    public void printType() {
+        if (busСapacity == null) {
+            System.out.println("Данных по авто недостаточно");
+        } else {
+            System.out.println("Вместимость автобуса: от  " + busСapacity.getFrom() + " до " + busСapacity.getTo());
+        }
     }
 
     @Override

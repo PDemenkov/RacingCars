@@ -1,8 +1,11 @@
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Truck extends Transport implements Competing {
-    public Truck(String brand, String model, float engineVolume) {
+    private Weight weight;
+
+    public Truck(String brand, String model, float engineVolume, Weight weight) {
         super(brand, model, engineVolume);
+        this.weight = weight;
     }
 
     @Override
@@ -13,6 +16,17 @@ public class Truck extends Transport implements Competing {
     @Override
     public void endMoving() {
         System.out.printf("Truck %s %s End moving", this.getBrand(), this.getModel());
+    }
+
+    @Override
+    public void printType() {
+        if (weight == null) {
+            System.out.println("Данных по авто недостаточно");
+        } else {
+            String from = weight.getFrom() == null ? "" : "от" + weight.getFrom() + " ";
+            String to = weight.getTo() == null ? "" : "от" + weight.getTo();
+            System.out.println("Грузоподъемность автомобиля: " + from + to);
+        }
     }
 
     @Override
