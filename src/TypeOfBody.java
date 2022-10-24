@@ -1,0 +1,12 @@
+
+public enum TypeOfBody {
+    TYPE_SEDAN,
+    TYPE_HATCHBACK,
+    TYPE_COUPE,
+    TYPE_UNIVERSAL,
+    TYPE_SUV,
+    TYPE_CROSSOVER,
+    TYPE_PICKUP,
+    TYPE_VAN,
+    TYPE_MINIVAN
+}
