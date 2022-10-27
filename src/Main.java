@@ -26,22 +26,23 @@ public class Main {
         truck.printType();
         System.out.println(truckDriver);
         System.out.println(truck.getBestLapTime());
-        
-        service(kia,bus,truck);
-    }
-    private static void service(Transport... transports) {
-        for (Transport transport : transports) {
 
-            serviceTransport(transport);
-            }
-        }
-    private static void serviceTransport(Transport transport) {
+
         try {
-            if (!transport.service()) {
-                throw new RuntimeException("Автомобиль" + transport.getBrand() + transport.getModel() + " не прошел диагностику");
-            }
-            } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
+            kia.passDiagnostics();
+
+        } catch (DiagnosticsException e) {
+            System.out.println("Транспортное средство не прошло диагностику " + e.getMessage());
+        } try {
+            bus.passDiagnostics();
+        } catch (DiagnosticsException e) {
+            System.out.println("Транспортное средство не прошло диагностику " + e.getMessage());
+        } try {
+            truck.passDiagnostics();
+        } catch (DiagnosticsException e) {
+            System.out.println("Транспортное средство не прошло диагностику " + e.getMessage());
         }
+
     }
+
 }

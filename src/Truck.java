@@ -28,8 +28,10 @@ public class Truck extends Transport implements Competing {
     }
 
     @Override
-    public boolean service() {
-        return Math.random() >0.75;
+    public void passDiagnostics() {
+        if (ThreadLocalRandom.current().nextBoolean()) {
+            throw new DiagnosticsException("Грузовик " + getBrand() +" "+ getModel() + " не прошел диагностику");
+        }
     }
 
     @Override

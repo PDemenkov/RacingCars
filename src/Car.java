@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Car extends Transport implements Competing {
@@ -36,9 +37,12 @@ public class Car extends Transport implements Competing {
     }
 
     @Override
-    public boolean service() {
-        return Math.random()>0.7;
+    public void passDiagnostics() {
+        if (ThreadLocalRandom.current().nextBoolean()) {
+            throw new DiagnosticsException("Машина " + this.getBrand() + " " + this.getModel() + " не прошла диагностику");
+        }
     }
+
 
     @Override
     public void pitStop() {

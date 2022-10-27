@@ -8,7 +8,7 @@ public abstract class Driver<T extends Transport> {
         this.fullName = fullName;
         this.driverExp = driverExp;
         this.car = car;
-        setCategory(category);
+        this.category = category;
     }
 
     public void startMoving() {
@@ -40,9 +40,6 @@ public abstract class Driver<T extends Transport> {
     }
 
     public void setCategory(String category) {
-        if (category == null) {
-            throw new IllegalArgumentException("Необходимо указать категорию прав");
-        }
         this.category = category;
     }
 
