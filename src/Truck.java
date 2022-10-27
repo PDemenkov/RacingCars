@@ -20,13 +20,16 @@ public class Truck extends Transport implements Competing {
 
     @Override
     public void printType() {
-        if (weight == null) {
-            System.out.println("Данных по авто недостаточно");
+        if (this.weight != null) {
+            System.out.println(this.weight);
         } else {
-            String from = weight.getFrom() == null ? "" : "от" + weight.getFrom() + " ";
-            String to = weight.getTo() == null ? "" : "от" + weight.getTo();
-            System.out.println("Грузоподъемность автомобиля: " + from + to);
+            System.out.println("Информации недостаточно");
         }
+    }
+
+    @Override
+    public boolean service() {
+        return Math.random() >0.75;
     }
 
     @Override

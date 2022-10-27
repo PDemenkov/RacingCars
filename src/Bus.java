@@ -21,11 +21,17 @@ public class Bus extends Transport implements Competing {
 
     @Override
     public void printType() {
-        if (busСapacity == null) {
-            System.out.println("Данных по авто недостаточно");
+        if (this.busСapacity != null) {
+            System.out.println(this.busСapacity);
         } else {
-            System.out.println("Вместимость автобуса: от  " + busСapacity.getFrom() + " до " + busСapacity.getTo());
+            System.out.println("Информации недостаточно");
         }
+    }
+
+    @Override
+    public boolean service() {
+        System.out.println("Автобус" +getBrand()  + getModel() + " в диагностики не нуждается");
+        return true;
     }
 
     @Override
@@ -42,4 +48,5 @@ public class Bus extends Transport implements Competing {
     public int getMaxSpeed() {
         return ThreadLocalRandom.current().nextInt(100, 180);
     }
+
 }

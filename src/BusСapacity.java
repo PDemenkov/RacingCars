@@ -28,4 +28,10 @@ public enum BusСapacity {
     public void setTo(int to) {
         this.to = to;
     }
+
+    @Override
+    public String toString() {
+        String capacity = from > 0 ? from + " - " + to : String.valueOf(to);
+        return "Вместимость: " +name() +" "+  (capacity + " мест");
+    }
 }

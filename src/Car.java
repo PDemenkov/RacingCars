@@ -28,11 +28,16 @@ public class Car extends Transport implements Competing {
 
     @Override
     public void printType() {
-        if (typeOfBody == null) {
+        if (this.typeOfBody == null) {
             System.out.println("Данных по авто недостаточно");
         } else {
-            System.out.println("Тип кузова: " + typeOfBody);
+            System.out.println(typeOfBody);
         }
+    }
+
+    @Override
+    public boolean service() {
+        return Math.random()>0.7;
     }
 
     @Override

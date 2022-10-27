@@ -1,5 +1,5 @@
 public enum Weight {
-    N1(0D, 3.5),
+    N1(null, 3.5),
     N2(3.5, 12D),
     N3(12D, null);
 
@@ -25,5 +25,12 @@ public enum Weight {
 
     public void setTo(Double to) {
         this.to = to;
+    }
+
+    @Override
+    public String toString() {
+        String capacityFromString = from != null ? "от " + from : "" ;
+        String capacityToString = to != null ? " до" + to + "тонн" : "";
+        return "Грузоподъемность" + from + " " + to;
     }
 }

@@ -1,14 +1,14 @@
 public abstract class Driver<T extends Transport> {
     private final String fullName;
-    private final String category;
+    private  String category;
     private final int driverExp;
     private final T car;
 
     public Driver(String fullName, String category, int driverExp, T car) {
         this.fullName = fullName;
-        this.category = category;
         this.driverExp = driverExp;
         this.car = car;
+        setCategory(category);
     }
 
     public void startMoving() {
@@ -37,6 +37,13 @@ public abstract class Driver<T extends Transport> {
 
     public int getDriverExp() {
         return driverExp;
+    }
+
+    public void setCategory(String category) {
+        if (category == null) {
+            throw new IllegalArgumentException("Необходимо указать категорию прав");
+        }
+        this.category = category;
     }
 
     @Override
