@@ -34,4 +34,6 @@ public enum BusСapacity {
         String capacity = from > 0 ? from + " - " + to : String.valueOf(to);
         return "Вместимость: " +name() +" "+  (capacity + " мест");
     }
+
+
 }

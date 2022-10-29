@@ -48,4 +48,9 @@ public class Truck extends Transport implements Competing {
     public int getMaxSpeed() {
         return ThreadLocalRandom.current().nextInt(110, 220);
     }
+
+    @Override
+    public void repair() {
+        System.out.println("Грузовик" + getBrand() + getModel() +" отремонтирован");
+    }
 }

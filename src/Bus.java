@@ -49,4 +49,8 @@ public class Bus extends Transport implements Competing {
         return ThreadLocalRandom.current().nextInt(100, 180);
     }
 
+    @Override
+    public void repair() {
+        System.out.println("Автобус" + getBrand() + getModel() +" отремонтирован");
+    }
 }
