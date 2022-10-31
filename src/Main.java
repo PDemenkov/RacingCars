@@ -1,5 +1,7 @@
 import java.sql.Driver;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,13 +28,12 @@ public class Main {
         truck.addMechanic(truckMechanic);
         truck.addSponsor(gazProm);
 
+//        Set<Transport> transports = Set.of(kia,bus,truck);
 
         List<Transport> transports = List.of(kia, bus, truck);
 
 
-
-
-
+//
 //        try {
 //            kia.passDiagnostics();
 //        } catch (DiagnosticsException e) {
@@ -65,13 +66,7 @@ public class Main {
         System.out.println("Информация об автомобиле" + transport.getBrand() + " " + transport.getModel());
         System.out.println("Водители: " + transport.getDrivers());
         System.out.println("Спонсоры: " + transport.getSponsors());
-//        for (Sponsor sponsor : transport.getSponsors()) {
-//            System.out.println(sponsor.getName());
-//        }
         System.out.println("Механики: " + transport.getMechanics());
-//        for (Mechanic mechanic : transport.getMechanics()) {
-//            System.out.println(mechanic.getName() + " " + mechanic.getSurName() +" " + mechanic.getCompany());
-//        }
     }
 
 }

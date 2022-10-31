@@ -1,4 +1,5 @@
 import java.time.chrono.ThaiBuddhistChronology;
+import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Bus extends Transport implements Competing {
@@ -52,5 +53,19 @@ public class Bus extends Transport implements Competing {
     @Override
     public void repair() {
         System.out.println("Автобус" + getBrand() + getModel() +" отремонтирован");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Bus bus = (Bus) o;
+        return busСapacity == bus.busСapacity ;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), busСapacity);
     }
 }

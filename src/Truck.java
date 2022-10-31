@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Truck extends Transport implements Competing {
@@ -52,5 +53,19 @@ public class Truck extends Transport implements Competing {
     @Override
     public void repair() {
         System.out.println("Грузовик" + getBrand() + getModel() +" отремонтирован");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Truck truck = (Truck) o;
+        return weight == truck.weight;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), weight);
     }
 }
